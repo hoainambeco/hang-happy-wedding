@@ -41,6 +41,8 @@
     var photoGalleries = [];
   </script>
   <body>
+    <button id="startButton">Bắt Đầu</button>
+
     <audio autoplay id="myAudio">
       <source
         src="https://cdn.biihappy.com/ziiweb/wedding-musics/BeautifulInWhite-ShaneFilan-524801.mp3"
@@ -569,7 +571,37 @@
         </div>
       </footer>
     </div>
+    <script type="text/javascript">
+      function parseJsonRecursively(jsonString) {
+        let parsed = JSON.parse(jsonString);
+        Object.keys(parsed).forEach(function (key) {
+          try {
+            let checkValue = JSON.parse(parsed[key]);
+            if (checkValue && checkValue.constructor === Object) {
+              parsed[key] = checkValue;
+            }
+          } catch (e) {}
+        });
+        return parsed;
+      }
+      let biicore = parseJsonRecursively(
+        '{"template_id":"6174ef83a62963738e0a367c","templatePremium":false,"themeRoot":"https:\/\/thiepcuoisyvanhaiyen.iwedding.info\/templates\/template15","webroot":"https:\/\/thiepcuoisyvanhaiyen.iwedding.info","coreSite":"https:\/\/biihappy.com","webToken":"670f1560438b0a61af025404","isPremium":false,"bgMusic":"https:\/\/cdn.biihappy.com\/ziiweb\/wedding-musics\/BeautifulInWhite-ShaneFilan-524801.mp3","alert":"[]","effect":"{\\"type\\":\\"heart\\"}","logo":"https:\/\/wedding.pimob.site\/asset\/favicon.ico","url_landing_page":"https:\/\/biihappy.com\/iwedding","isAutoPlay":true,"footer_title":"iWedding | N\u1ec1n t\u1ea3ng t\u1ea1o website \u0111\u00e1m c\u01b0\u1edbi mi\u1ec5n ph\u00ed t\u1eeb Biihappy","footer_title_mobile":"T\u1ea1o website \u0111\u00e1m c\u01b0\u1edbi mi\u1ec5n ph\u00ed"}'
+      );
 
+      window.onload = function () {
+        document.getElementById("startButton").click();
+      };
+      document
+        .getElementById("startButton")
+        .addEventListener("click", function () {
+          setTimeout(function () {
+            const audio = document.getElementById("myAudio");
+            audio.play().catch((error) => {
+              console.log("Âm thanh không thể phát:", error);
+            });
+          }, 2000); // Phát sau 2 giây khi người dùng nhấp
+        });
+    </script>
     <script src="https://thiepcuoisyvanhaiyen.iwedding.info/templates/template15/js/jquery-plugin-collection.js?v=20241021"></script>
     <script src="script.js"></script>
     <script src="https://thiepcuoisyvanhaiyen.iwedding.info/common/calendar.js?v=20241021"></script>

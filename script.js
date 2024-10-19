@@ -7,7 +7,7 @@ function createHeart() {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = Math.random() * 2 + 3 + "s";
 
-  document.querySelector(".heart-container").appendChild(heart);
+  // document.querySelector(".heart-container").appendChild(heart);
 
   // Loại bỏ trái tim sau khi hoàn thành chuyển động
   setTimeout(() => {
